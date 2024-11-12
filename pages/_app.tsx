@@ -11,11 +11,11 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
-    <NextUIProvider navigate={router.push}>
-      <NextThemesProvider>
+    <NextThemesProvider attribute="class" defaultTheme="dark">
+      <NextUIProvider navigate={router.push}>
         <Component {...pageProps} />
-      </NextThemesProvider>
-    </NextUIProvider>
+      </NextUIProvider>
+    </NextThemesProvider>
   );
 }
 

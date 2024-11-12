@@ -1,18 +1,41 @@
 import { Select, SelectItem } from "@nextui-org/select";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
+import { useTheme } from "next-themes";
+import { Switch } from "@nextui-org/switch";
+import { FiDownload } from "react-icons/fi";
 
 import useIndex, { LICENSE_TYPES } from "@/hooks/useIndex";
+import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
 
 export default function IndexPage() {
+  const { theme, setTheme } = useTheme();
   const { formData, setFormData, handleSubmit } = useIndex();
 
+  const darkBgColor =
+    "bg-gradient-to-b from-indigo-950 via-purple-950 to-blue-950";
+  const lightBgColor = "bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200";
+
   return (
-    <div className="min-h-screen py-12">
-      <div className="max-w-md mx-auto p-8">
-        <h1 className="text-3xl font-bold text-center mb-8">
-          MobaXterm Keygen
-        </h1>
+    <div
+      className={`min-h-screen py-12 ${theme === "dark" ? darkBgColor : lightBgColor}`}
+    >
+      <div className="max-w-md mx-auto p-8 rounded-xl backdrop-blur-lg bg-white/10 dark:bg-white/10 light:bg-black/10 shadow-2xl border border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50">
+        <div className="flex justify-between items-center mb-8">
+          <h1
+            className={`text-3xl font-   ${theme === "dark" ? "text-white" : "text-black"}`}
+          >
+            MobaXterm Keygen
+          </h1>
+          <Switch
+            defaultSelected={theme === "dark"}
+            size="lg"
+            color="secondary"
+            startContent={<SunFilledIcon className="h-6 w-6" />}
+            endContent={<MoonFilledIcon className="h-6 w-6" />}
+            onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+          />
+        </div>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <Select
@@ -68,6 +91,7 @@ export default function IndexPage() {
             type="submit"
             className="w-full"
           >
+            <FiDownload className="h-4 w-4" />
             Download Key
           </Button>
         </form>

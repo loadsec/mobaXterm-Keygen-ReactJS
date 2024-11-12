@@ -26,7 +26,8 @@ export default function useIndex() {
     parseInt(formData.versionName.split(".")[1]),
   );
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     let zip = new JSZip();
 
     zip.file("Pro.key", licenseStr);

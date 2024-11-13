@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import JSZip from "jszip";
 import fileSaver from "file-saver";
@@ -17,6 +19,9 @@ export default function useIndex() {
     versionName: "24.3",
     userNum: "1",
   });
+  
+  // Adicionar estado para mensagem de erro
+  const [userNameError, setUserNameError] = useState<string>("");
 
   let licenseStr = generateLicense(
     LICENSE_TYPES[formData.licenseType as keyof typeof LICENSE_TYPES],
@@ -28,13 +33,19 @@ export default function useIndex() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Validação do userName
+    if (!formData.userName || formData.userName.length < 5) {
+      setUserNameError("O nome de usuário deve ter pelo menos 5 caracteres");
+      return;
+    }
+    
     let zip = new JSZip();
-
     zip.file("Pro.key", licenseStr);
     zip.generateAsync({ type: "blob" }).then(function (content) {
       fileSaver.saveAs(content, "Custom.mxtpro");
     });
   };
 
-  return { formData, setFormData, handleSubmit };
+  return { formData, setFormData, handleSubmit, userNameError };
 }

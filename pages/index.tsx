@@ -1,16 +1,28 @@
+"use client";
 import { Select, SelectItem } from "@nextui-org/select";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { useTheme } from "next-themes";
-import { Switch } from "@nextui-org/switch";
 import { FiDownload } from "react-icons/fi";
 
 import useIndex, { LICENSE_TYPES } from "@/hooks/useIndex";
 import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
+import { useEffect } from "react";
 
 export default function IndexPage() {
   const { theme, setTheme } = useTheme();
   const { formData, setFormData, handleSubmit } = useIndex();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTheme(localStorage.getItem("theme") || "dark");
+    }, 1000);
+  }, [theme]);
+
+  const handleChangeTheme = () => {
+    localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const darkBgColor =
     "bg-gradient-to-b from-indigo-950 via-purple-950 to-blue-950";
@@ -27,14 +39,23 @@ export default function IndexPage() {
           >
             MobaXterm Keygen
           </h1>
-          <Switch
-            defaultSelected={theme === "dark"}
-            size="lg"
-            color="secondary"
-            startContent={<SunFilledIcon className="h-6 w-6" />}
-            endContent={<MoonFilledIcon className="h-6 w-6" />}
-            onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
-          />
+          <button
+            onClick={handleChangeTheme}
+            className={`relative inline-flex h-8 w-16 items-center rounded-full p-1 transition-colors duration-300 ${
+              theme === "dark" ? "bg-purple-700" : "bg-blue-200"
+            }`}
+          >
+            <span
+              className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-lg transition-transform duration-300 ${
+                theme === "dark" ? "translate-x-8" : "translate-x-0"
+              }`}
+            />
+            {theme === "dark" ? (
+              <MoonFilledIcon className="absolute right-2 h-4 w-4 text-yellow-200" />
+            ) : (
+              <SunFilledIcon className="absolute left-2 h-4 w-4 text-yellow-500" />
+            )}
+          </button>
         </div>
 
         <form className="space-y-6" onSubmit={handleSubmit}>

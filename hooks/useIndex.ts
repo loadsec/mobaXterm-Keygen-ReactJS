@@ -15,7 +15,7 @@ export const LICENSE_TYPES = [
 export default function useIndex() {
   const [formData, setFormData] = useState({
     licenseType: "Professional",
-    userName: "defaultUserName",
+    userName: "mobaXterm",
     versionName: "24.3",
     userNum: "1",
   });

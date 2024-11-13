@@ -6,6 +6,12 @@ import fileSaver from "file-saver";
 
 import { generateLicense } from "../utils/mobaXtermGenerater";
 
+const LICENSE_TYPES_MAP = {
+  Professional: 1,
+  Educational: 3,
+  Personal: 4,
+};
+
 export const LICENSE_TYPES = [
   "Professional",
   "Educational",
@@ -24,12 +30,14 @@ export default function useIndex() {
   const [userNameError, setUserNameError] = useState<string>("");
 
   let licenseStr = generateLicense(
-    LICENSE_TYPES.indexOf(formData.licenseType),
+    LICENSE_TYPES_MAP[formData.licenseType as keyof typeof LICENSE_TYPES_MAP],
     formData.userName,
     parseInt(formData.userNum),
     parseInt(formData.versionName.split(".")[0]),
     parseInt(formData.versionName.split(".")[1]),
   );
+
+  console.log(LICENSE_TYPES_MAP[formData.licenseType as keyof typeof LICENSE_TYPES_MAP]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -6,11 +6,11 @@ import fileSaver from "file-saver";
 
 import { generateLicense } from "../utils/mobaXtermGenerater";
 
-export const LICENSE_TYPES = {
-  Professional: 1,
-  Educational: 3,
-  Personal: 4,
-};
+export const LICENSE_TYPES = [
+  "Professional",
+  "Educational",
+  "Personal",
+];
 
 export default function useIndex() {
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ export default function useIndex() {
   const [userNameError, setUserNameError] = useState<string>("");
 
   let licenseStr = generateLicense(
-    LICENSE_TYPES[formData.licenseType as keyof typeof LICENSE_TYPES],
+    LICENSE_TYPES.indexOf(formData.licenseType),
     formData.userName,
     parseInt(formData.userNum),
     parseInt(formData.versionName.split(".")[0]),

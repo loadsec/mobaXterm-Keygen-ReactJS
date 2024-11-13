@@ -30,10 +30,10 @@ export default function KeyGenerator() {
     <div
       className={`min-h-screen py-12 ${theme === "dark" ? darkBgColor : lightBgColor}`}
     >
-      <div className="max-w-md mx-auto p-8 rounded-xl backdrop-blur-lg bg-white/10 dark:bg-white/10 light:bg-black/10 shadow-2xl border border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50">
+      <div className="max-w-md mx-auto p-4 md:p-8 rounded-xl backdrop-blur-lg bg-transparent md:bg-white/10 md:dark:bg-white/10 md:light:bg-black/10 shadow-none md:shadow-2xl border-none md:border md:border-gray-700/50 md:dark:border-gray-700/50 md:light:border-gray-300/50">
         <div className="flex justify-between items-center mb-8">
           <h1
-            className={`text-3xl font-   ${theme === "dark" ? "text-white" : "text-black"}`}
+            className={`text-2xl md:text-3xl font-bold ${theme === "dark" ? "text-white" : "text-black"}`}
           >
             MobaXterm Keygen
           </h1>

@@ -22,7 +22,7 @@ export default function useIndex() {
   const [formData, setFormData] = useState({
     licenseType: "Professional",
     userName: "mobaXterm",
-    versionName: "24.3",
+    versionName: "24.4",
     userNum: "1",
   });
   

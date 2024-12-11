@@ -91,7 +91,7 @@ export default function KeyGenerator() {
 
           <Input
             label="Version"
-            placeholder="Example: 24.3"
+            placeholder="Example: 24.4"
             value={formData.versionName}
             onChange={(e) =>
               setFormData({ ...formData, versionName: e.target.value })

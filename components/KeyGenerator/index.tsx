@@ -104,7 +104,7 @@ export default function KeyGenerator() {
           />
 
           <Input
-            description="Number must be between 1 and 214783647"
+            description="Number must be between 1 and 2147483647"
             label="Number of Users"
             placeholder="Example: 1"
             value={formData.userNum}

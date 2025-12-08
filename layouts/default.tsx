@@ -1,4 +1,4 @@
-import { Link } from "@nextui-org/link";
+import { Link } from "@heroui/link";
 
 import { Head } from "./head";
 
@@ -24,7 +24,7 @@ export default function DefaultLayout({
           title="nextui.org homepage"
         >
           <span className="text-default-600">Powered by</span>
-          <p className="text-primary">NextUI</p>
+          <p className="text-primary">HeroUI</p>
         </Link>
       </footer>
     </div>

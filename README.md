@@ -1,6 +1,6 @@
-# Next.js & NextUI Template
+# Next.js & HeroUI (NextUI) Template
 
-This is a template for creating applications using Next.js 14 (pages directory) and NextUI (v2).
+This is a template for creating applications using Next.js 14 (pages directory) and HeroUI (the renamed NextUI v2).
 
 [Try it on CodeSandbox](https://githubbox.com/nextui-org/next-pages-template)
 
@@ -11,7 +11,7 @@ This is a template for creating applications using Next.js 14 (pages directory) 
 ## Technologies Used
 
 - [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI](https://nextui.org)
+- [HeroUI (NextUI v2)](https://nextui.org)
 - [Tailwind CSS](https://tailwindcss.com)
 - [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org)
@@ -45,7 +45,7 @@ npm run dev
 If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.

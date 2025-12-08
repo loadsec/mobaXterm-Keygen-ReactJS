@@ -1,22 +1,26 @@
-import { Select, SelectItem } from "@nextui-org/select";
-import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
+import { Select, SelectItem } from "@heroui/select";
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
 import { useTheme } from "next-themes";
 import { FiDownload, FiUser, FiTag, FiUsers, FiBox } from "react-icons/fi";
 
 import useIndex, { LICENSE_TYPES } from "@/hooks/useIndex";
 import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function KeyGenerator() {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const { formData, setFormData, handleSubmit } = useIndex();
 
   useEffect(() => {
-    setTimeout(() => {
-      setTheme(localStorage.getItem("theme") || "dark");
-    }, 1000);
-  }, [theme]);
+    setMounted(true);
+  }, []);
+
+  // Avoid hydration mismatch while theme is resolved on the client
+  if (!mounted) {
+    return null;
+  }
 
   const handleChangeTheme = () => {
     localStorage.setItem("theme", theme === "dark" ? "light" : "dark");

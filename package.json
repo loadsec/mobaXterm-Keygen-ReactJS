@@ -9,7 +9,7 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
 	"engines": {
-		"node": "v23.2.0"
+		"node": ">=23.2.0"
 	},
 	"dependencies": {
 		"@heroui/button": "2.2.28",

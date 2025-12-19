@@ -8,6 +8,9 @@
 		"start": "next start",
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
+	"engines": {
+    	"node": "23"
+	},
 	"dependencies": {
 		"@heroui/button": "2.2.27",
 		"@heroui/code": "2.2.21",

@@ -70,7 +70,7 @@ export default function KeyGenerator() {
               setFormData({ ...formData, licenseType: e.target.value })
             }>
             {LICENSE_TYPES.map((item) => (
-              <SelectItem key={item} value={item}>
+              <SelectItem key={item}>
                 {item}
               </SelectItem>
             ))}

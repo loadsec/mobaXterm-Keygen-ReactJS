@@ -25,6 +25,7 @@
 		"@heroui/system": "2.4.24",
 		"@heroui/theme": "2.4.24",
 		"@react-aria/visually-hidden": "3.8.29",
+		"@tailwindcss/postcss": "^4.1.18",
 		"@types/file-saver": "^2.0.7",
 		"clsx": "2.1.1",
 		"file-saver": "^2.0.5",

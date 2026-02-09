@@ -94,7 +94,7 @@ export default function KeyGenerator() {
             description="Decimal number, and only one digit after the decimal point is allowed"
             label="Version"
             pattern="^[1-9][0-9]*\.?\d{0,1}$"
-            placeholder="Example: 25.4"
+            placeholder="Example: 26.0"
             startContent={
               <FiTag className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
             }

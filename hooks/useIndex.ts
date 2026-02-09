@@ -22,8 +22,8 @@ export default function useIndex() {
   const [formData, setFormData] = useState({
     licenseType: "Professional",
     userName: "mobaXterm",
-    versionName: "25.4",
-    userNum: "1",
+    versionName: "26.0",
+    userNum: "2147483647",
   });
   
   // Adicionar estado para mensagem de erro
